@@ -52,7 +52,7 @@ void trainPerceptron(int input1, int input2, int target, Perceptron &p)
 
     for (int i = 0; i < 2; i++)
     {
-        p.weights[i] += error * learning_rate;
+        p.weights[i] += error * learning_rate + 1;
     }
 }
 
