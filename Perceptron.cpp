@@ -35,6 +35,27 @@ int activationFunction(int input)
     }
 }
 
+// function to guess the output
+int guessOutput(int input1, int input2, Perceptron p)
+{
+    int input = inputCalculation(input1, input2, p);
+    return activationFunction(input);
+}
+
+// function to train the perceptron
+void trainPerceptron(int input1, int input2, int target, Perceptron &p)
+{
+    int guess = guessOutput(input1, input2, p);
+    int error = target - guess;
+
+    double learning_rate = 0.1;
+
+    for (int i = 0; i < 2; i++)
+    {
+        p.weights[i] += error * learning_rate;
+    }
+}
+
 int main()
 {
     Perceptron p;
